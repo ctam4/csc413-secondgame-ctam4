@@ -17,55 +17,20 @@ public class GameworldKeyListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                // player 1 up
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_W");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleUp", true);
+            case KeyEvent.VK_LEFT:
+                // player left
+                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_LEFT");
+                this.app.getGameworld().setPlayerRocketControl("toggleLeft", true);
                 break;
-            case KeyEvent.VK_A:
-                // player 1 left
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_A");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleLeft", true);
+            case KeyEvent.VK_RIGHT:
+                // player right
+                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_RIGHT");
+                this.app.getGameworld().setPlayerRocketControl("toggleRight", true);
                 break;
-            case KeyEvent.VK_S:
-                // player 1 down
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_S");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleDown", true);
-                break;
-            case KeyEvent.VK_D:
-                // player 1 right
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_D");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleRight", true);
-                break;
-            case KeyEvent.VK_Z:
-                // player 1 shoot
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_Z");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleFire", true);
-                break;
-            case KeyEvent.VK_I:
-                // player 2 up
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_I");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleUp", true);
-                break;
-            case KeyEvent.VK_J:
-                // player 2 left
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_J");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleLeft", true);
-                break;
-            case KeyEvent.VK_K:
-                // player 2 down
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_K");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleDown", true);
-                break;
-            case KeyEvent.VK_L:
-                // player 2 right
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_L");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleRight", true);
-                break;
-            case KeyEvent.VK_M:
-                // player 2 fire
-                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_M");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleFire", true);
+            case KeyEvent.VK_SPACE:
+                // player ignite
+                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_SPACE");
+                this.app.getGameworld().setPlayerRocketControl("toggleIgnite", true);
                 break;
             case KeyEvent.VK_ESCAPE:
                 // press escape key to reset
@@ -78,55 +43,20 @@ public class GameworldKeyListener implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                // player 1 up
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_W");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleUp", false);
+            case KeyEvent.VK_LEFT:
+                // player left
+                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_LEFT");
+                this.app.getGameworld().setPlayerRocketControl("toggleLeft", false);
                 break;
-            case KeyEvent.VK_A:
-                // player 1 left
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_A");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleLeft", false);
+            case KeyEvent.VK_RIGHT:
+                // player right
+                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_RIGHT");
+                this.app.getGameworld().setPlayerRocketControl("toggleRight", false);
                 break;
-            case KeyEvent.VK_S:
-                // player 1 down
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_S");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleDown", false);
-                break;
-            case KeyEvent.VK_D:
-                // player 1 right
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_D");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleRight", false);
-                break;
-            case KeyEvent.VK_Z:
-                // player 1 fire
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_Z");
-                this.app.getGameworld().setPlayerTankControl(1, "toggleFire", false);
-                break;
-            case KeyEvent.VK_I:
-                // player 2 up
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_I");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleUp", false);
-                break;
-            case KeyEvent.VK_J:
-                // player 2 left
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_J");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleLeft", false);
-                break;
-            case KeyEvent.VK_K:
-                // player 2 down
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_K");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleDown", false);
-                break;
-            case KeyEvent.VK_L:
-                // player 2 right
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_L");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleRight", false);
-                break;
-            case KeyEvent.VK_M:
-                // player 2 fire
-                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_M");
-                this.app.getGameworld().setPlayerTankControl(2, "toggleFire", false);
+            case KeyEvent.VK_SPACE:
+                // player ignite
+                System.out.println(this.getClass().getSimpleName() + " - keyReleased() - VK_SPACE");
+                this.app.getGameworld().setPlayerRocketControl("toggleIgnite", false);
                 break;
         }
     }
