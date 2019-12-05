@@ -1,11 +1,23 @@
-# csc413-SecondGame
+# csc413-secondgame
 
-## Student Name  :
-## Student ID    :
+## Student Name  : Calvin Tam
+## Student ID    : 917902523
 
+### Player control
+- ←: turn left
+- →: turn right
+- SPACEBAR: ignite
 
-## src folder is to be used to store source code only.
+### Develop environment
+- OpenJDK 11.0.5
+- Working directory: root
 
-## resources folder is to be used to store the resources for your project only. This includes images, sounds, map text files, etc.
-
-## jar folder is used to store the built jar of your term-project. NO SOURCE CODE SHOULD BE IN THIS FOLDER. DOING SO WILL CAUSE POINTS TO BE DEDUCTED
+### Compile to run
+```bash
+$ cd src \
+&& javac galacticmail/*.java galacticmail/gameobject/*.java \
+&& jar -cvfe ../jar/galacticmail.jar galacticmail.Launcher galacticmail/*.class galacticmail/gameobject/*.class ../resources/* \
+&& rm galacticmail/*.class galacticmail/gameobject/*.class \
+&& cd .. \
+&& java -jar jar/galacticmail.jar
+```
