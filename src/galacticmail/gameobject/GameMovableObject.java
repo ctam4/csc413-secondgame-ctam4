@@ -10,7 +10,6 @@ import galacticmail.Launcher;
 
 public abstract class GameMovableObject extends GameObject {
     protected int vx, vy, angle, maxX, maxY;
-    protected int lastDirection;
 
     protected GameMovableObject(Launcher app, double scale, BufferedImage image, int x, int y, int vx, int vy, int angle, int maxX, int maxY) {
         super(app, scale, image, x, y);
