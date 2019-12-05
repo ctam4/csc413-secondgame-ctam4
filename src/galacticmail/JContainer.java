@@ -1,4 +1,4 @@
-package tankgame;
+package galacticmail;
 
 import javax.swing.JFrame;
 

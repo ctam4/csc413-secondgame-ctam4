@@ -1,4 +1,4 @@
-package tankgame;
+package galacticmail;
 
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;

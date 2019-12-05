@@ -1,4 +1,4 @@
-package tankgame;
+package galacticmail;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.awt.event.ActionListener;
@@ -7,8 +7,8 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import tankgame.gameobject.GameObject;
-import tankgame.gameobject.GameMovableObject;
+import galacticmail.gameobject.GameObject;
+import galacticmail.gameobject.GameMovableObject;
 
 public class JCustomPanel extends JPanel implements ActionListener {
     public Timer timer;

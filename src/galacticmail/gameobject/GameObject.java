@@ -1,10 +1,10 @@
-package tankgame.gameobject;
+package galacticmail.gameobject;
 
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
 import java.lang.Math;
 
-import tankgame.Launcher;
+import galacticmail.Launcher;
 
 public abstract class GameObject {
     protected double scale;

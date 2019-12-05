@@ -1,4 +1,4 @@
-package tankgame.gameobject;
+package galacticmail.gameobject;
 
 import java.awt.image.BufferedImage;
 import java.awt.geom.AffineTransform;
@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.lang.Math;
 
-import tankgame.Launcher;
+import galacticmail.Launcher;
 
 public abstract class GameMovableObject extends GameObject {
     protected int vx, vy, angle, maxX, maxY;

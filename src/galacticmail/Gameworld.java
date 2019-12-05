@@ -1,4 +1,4 @@
-package tankgame;
+package galacticmail;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,7 +16,7 @@ import java.lang.Math;
 import java.lang.IllegalArgumentException;
 import java.lang.reflect.InvocationTargetException;
 
-import tankgame.gameobject.*;
+import galacticmail.gameobject.*;
 
 public class Gameworld extends JContainer implements ActionListener {
     private JFrame mini_frame;

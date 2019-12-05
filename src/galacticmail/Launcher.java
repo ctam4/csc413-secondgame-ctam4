@@ -1,4 +1,4 @@
-package tankgame;
+package galacticmail;
 
 import java.util.HashMap;
 import java.io.File;
