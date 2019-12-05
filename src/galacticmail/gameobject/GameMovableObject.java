@@ -20,6 +20,26 @@ public abstract class GameMovableObject extends GameObject {
         this.maxY = maxY;
     }
 
+    public int getVx() {
+        return this.vx;
+    }
+
+    public int getVy() {
+        return this.vy;
+    }
+
+    public int getAngle() {
+        return this.angle;
+    }
+
+    public int getMaxX() {
+        return this.maxX;
+    }
+
+    public int getMaxY() {
+        return this.maxY;
+    }
+
     public abstract void update();
 
     protected boolean validPosition(int x, int y) {
