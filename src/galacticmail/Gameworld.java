@@ -6,11 +6,9 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JSplitPane;
 import javax.swing.Timer;
 import java.lang.Math;
 import java.lang.IllegalArgumentException;
@@ -45,10 +43,10 @@ public class Gameworld extends JContainer implements ActionListener {
         this.app.putString("Gameworld/ok", "Okay");
         this.app.putString("Gameworld/congrats", "Congrats");
         this.app.putString("Gameworld/sorry", "Sorry");
-        this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner, and you get this title - Super Galactic Mail Carrier");
-        this.app.putString("Gameworld/is_level_winner", "You win this level, so you get promoted");
-        this.app.putString("Gameworld/is_loser", "You are the loser");
-        this.app.putString("Gameworld/name", "Now you are one of the Super Galactic Mail Carriers, what is your name, Captain?");
+        this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner, and you get this title - Super Galactic Mail Carrier!");
+        this.app.putString("Gameworld/is_level_winner", "You win this level, so you get promoted!!!");
+        this.app.putString("Gameworld/is_loser", "You are the loser!!!");
+        this.app.putString("Gameworld/name", "Now you are one of the Super Galactic Mail Carriers. What is your name, Captain?");
         // create JFrame object
         this.frame = new JFrame();
         // set frame title
@@ -243,7 +241,7 @@ public class Gameworld extends JContainer implements ActionListener {
         if (this.rocket.getPay() >= this.app.getLevel() * 5000) {
             // overall winner
             if (this.app.getLevel() == 5) {
-                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_overall_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_overall_winner"), this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // ask for name
                 String name;
                 do {
@@ -256,7 +254,7 @@ public class Gameworld extends JContainer implements ActionListener {
             }
             // level winner
             else {
-                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_level_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_level_winner"), this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // level up
                 this.app.setLevel(this.app.getLevel() + 1);
             }
@@ -264,7 +262,7 @@ public class Gameworld extends JContainer implements ActionListener {
         }
         // loser
         else if (this.rocket.getHealth() == 0) {
-            JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_loser") + "!!!</body></html>", this.app.getString("Gameworld/sorry"), JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_loser"), this.app.getString("Gameworld/sorry"), JOptionPane.INFORMATION_MESSAGE);
             // reset level
             this.app.setLevel(1);
             this.app.reset();

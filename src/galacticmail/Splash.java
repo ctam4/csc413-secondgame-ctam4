@@ -57,8 +57,8 @@ public class Splash extends JContainer {
         // set panel size
         this.panel.setSize(this.frame.getSize());
         // set panel padding
-        int paddingWidth = (int) (this.panel.getWidth() * 0.2);
-        int paddingHeight = (int) (this.panel.getHeight() * 0.15);
+        int paddingWidth = (int) Math.round(this.panel.getWidth() * 0.2);
+        int paddingHeight = (int) Math.round(this.panel.getHeight() * 0.15);
         this.panel.setBorder(BorderFactory.createEmptyBorder(paddingHeight, paddingWidth, paddingHeight, paddingWidth));
         // set panel visible
         this.panel.setVisible(true);
@@ -66,7 +66,7 @@ public class Splash extends JContainer {
         this.frame.setContentPane(panel);
         // set title to panel
         JLabel title = new JLabel(new ImageIcon(this.app.getResource("Splash/title")));
-        title.setPreferredSize(new Dimension((int) (this.panel.getWidth()), (int) (this.panel.getHeight() * 0.4)));
+        title.setPreferredSize(new Dimension(this.panel.getWidth(), (int) Math.round(this.panel.getHeight() * 0.4)));
         title.setHorizontalAlignment(JLabel.CENTER);
         title.setVerticalAlignment(JLabel.TOP);
         this.panel.add(title);
@@ -74,7 +74,7 @@ public class Splash extends JContainer {
         JLabel instruction = new JLabel();
         instruction.setText("<html><body style='text-align: center'>" + this.app.getString("Splash/instruction_1") + "<br>" + this.app.getString("Splash/instruction_2") + "<br>" + this.app.getString("Splash/instruction_3") + "</body></html>");
         instruction.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) Math.round(30 * this.app.getScale())));
-        instruction.setPreferredSize(new Dimension((int) (this.panel.getWidth()), (int) (this.panel.getHeight() * 0.25)));
+        instruction.setPreferredSize(new Dimension(this.panel.getWidth(), (int) Math.round(this.panel.getHeight() * 0.25)));
         instruction.setHorizontalAlignment(JLabel.CENTER);
         instruction.setVerticalAlignment(JLabel.BOTTOM);
         this.panel.add(instruction);
