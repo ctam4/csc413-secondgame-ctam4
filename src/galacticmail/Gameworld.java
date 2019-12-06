@@ -44,7 +44,8 @@ public class Gameworld extends JContainer implements ActionListener {
         this.app.putString("Gameworld/ok", "Okay");
         this.app.putString("Gameworld/congrats", "Congrats");
         this.app.putString("Gameworld/sorry", "Sorry");
-        this.app.putString("Gameworld/is_winner", "You are the winner");
+        this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner");
+        this.app.putString("Gameworld/is_level_winner", "You are the level winner");
         this.app.putString("Gameworld/is_loser", "You are the loser");
         // create JFrame object
         this.frame = new JFrame();
@@ -254,9 +255,18 @@ public class Gameworld extends JContainer implements ActionListener {
     private void checkWinnerLoser() {
         // winner
         if (this.rocket.getPay() >= 10000) {
-            JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
-            // level up
-            this.app.setLevel(this.app.getLevel() + 1);
+            // overall winner
+            if (this.app.getLevel() == 5) {
+                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                // reset level
+                this.app.setLevel(1);
+            }
+            // level winner
+            else {
+                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                // level up
+                this.app.setLevel(this.app.getLevel() + 1);
+            }
             this.app.reset();
         }
         // loser
