@@ -1,9 +1,15 @@
 package galacticmail;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Collections;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.stream.Collectors;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.BorderFactory;
@@ -16,7 +22,11 @@ public class Splash extends JContainer {
         // import resources using path
         this.app.putResource("Splash/title", "/resources/Title.gif");
         // import strings
-        this.app.putString("Splash/instruction", "[ENTER] to start/continue | [ESC] to quit");
+        this.app.putString("Splash/instruction_1", "[ENTER] to start/continue");
+        this.app.putString("Splash/instruction_2", "[SPACEBAR] to show scoreboard");
+        this.app.putString("Splash/instruction_3", "[ESC] to quit");
+        this.app.putString("Splash/scoreboard", "Scoreboard");
+        this.app.putString("Splash/empty_scoreboard", "No one received the Super Galactic Mail Carrier title yet.");
         // create JFrame object
         this.frame = new JFrame();
         // set frame title
@@ -62,7 +72,7 @@ public class Splash extends JContainer {
         this.panel.add(title);
         // set instruction to panel
         JLabel instruction = new JLabel();
-        instruction.setText(this.app.getString("Splash/instruction"));
+        instruction.setText("<html><body style='text-align: center'>" + this.app.getString("Splash/instruction_1") + "<br>" + this.app.getString("Splash/instruction_2") + "<br>" + this.app.getString("Splash/instruction_3") + "</body></html>");
         instruction.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) Math.round(30 * this.app.getScale())));
         instruction.setPreferredSize(new Dimension((int) (this.panel.getWidth()), (int) (this.panel.getHeight() * 0.25)));
         instruction.setHorizontalAlignment(JLabel.CENTER);
@@ -70,5 +80,20 @@ public class Splash extends JContainer {
         this.panel.add(instruction);
         // bind SplashKeyListener to frame
         this.frame.addKeyListener(new SplashKeyListener(this.app));
+    }
+
+    public void showScoreboard() {
+        // sort scoreboard
+        List<Map.Entry<String, Integer>> scoreboard = new LinkedList<Map.Entry<String, Integer>>(this.app.getScoreboard().entrySet());
+        Collections.sort(scoreboard, (a, b) -> (a.getValue()).compareTo(b.getValue()));
+        // display result
+        String message;
+        if (!scoreboard.isEmpty()) {
+            message = "<html><body>" + scoreboard.stream().map(e -> e.getKey() + ": $" + e.getValue()).collect(Collectors.joining("<br>")) + "</body></html>";
+        }
+        else {
+            message = this.app.getString("Splash/empty_scoreboard");
+        }
+        JOptionPane.showMessageDialog(this.frame, message, this.app.getString("Splash/scoreboard"), JOptionPane.INFORMATION_MESSAGE);
     }
 }

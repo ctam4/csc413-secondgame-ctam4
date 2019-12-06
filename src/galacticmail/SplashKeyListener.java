@@ -18,9 +18,14 @@ public class SplashKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ENTER:
-                // press enter key to start
+                // press enter key to start/continue
                 System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_ENTER");
                 this.app.start();
+                break;
+            case KeyEvent.VK_SPACE:
+                // press space bar key to show scoreboard
+                System.out.println(this.getClass().getSimpleName() + " - keyPressed() - VK_SPACE");
+                this.app.getSplash().showScoreboard();
                 break;
             case KeyEvent.VK_ESCAPE:
                 // press escape key to quit

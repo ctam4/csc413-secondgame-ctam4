@@ -14,6 +14,8 @@ public class Launcher {
     private HashMap<String, BufferedImage> resources;
     private HashMap<String, String> strings;
 
+    private HashMap<String, Integer> scoreboard;
+
     private final int unitSize = 40;
     private int scale;
 
@@ -32,6 +34,8 @@ public class Launcher {
         System.out.println(this.getClass().getSimpleName() + " - Launcher() - Set scale: " + getScale());
         // initialize level
         this.level = 1;
+        // initialize scoreboard
+        this.scoreboard = new HashMap<>();
         // initialize JContainer object
         this.splash = new Splash(this);
         // ready to splash
@@ -40,6 +44,10 @@ public class Launcher {
 
     public static void main(String[] args) {
         new Launcher();
+    }
+
+    public Splash getSplash() {
+        return (Splash) this.splash;
     }
 
     public Gameworld getGameworld() {
@@ -64,6 +72,14 @@ public class Launcher {
 
     protected void putString(String key, String value) {
         this.strings.put(key, value);
+    }
+
+    public HashMap getScoreboard() {
+        return this.scoreboard;
+    }
+
+    public void putScoreboard(String name, int pay) {
+        this.scoreboard.put(name, pay);
     }
 
     public int getUnitSize() {
