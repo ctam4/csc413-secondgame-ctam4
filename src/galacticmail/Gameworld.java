@@ -271,6 +271,10 @@ public class Gameworld extends JContainer implements ActionListener {
         System.out.println(this.getClass().getSimpleName() + " - actionPerformed()");
         // add player info
         addPlayerInfo();
+        // add random asteroids
+        if (Math.random() < 0.01) {
+            addAsteroids(this.app.getLevel() * 1);
+        }
         // check winner/loser
         checkWinnerLoser();
     }
