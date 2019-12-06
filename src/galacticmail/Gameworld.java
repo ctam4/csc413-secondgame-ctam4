@@ -126,8 +126,8 @@ public class Gameworld extends JContainer implements ActionListener {
         }
         // set rocket to panel
         int x, y, angle, maxX, maxY, health, pay;
-        // if gameObject is NULL
-        if (this.rocket == null) {
+        // if gameMovableObject is NULL
+        if (gameMovableObject == null) {
             // find first moon
             /*gameMovableObject = this.panel.getGameMovableObjects().stream().filter(n -> n.getClass().getSimpleName().equals("Moon")).findFirst().get();
             if (gameMovableObject == null) {
@@ -140,8 +140,10 @@ public class Gameworld extends JContainer implements ActionListener {
             maxY = this.panel.getHeight();
             health = 300;
             pay = 0;
-        } else {
-            /*int vx = 0, vy = 0;
+        }
+        // if rocket has collided with another GameMovableObject
+        else {
+            int vx = 0, vy = 0;
             do {
                 vx += (int) Math.round((gameMovableObject.getWidth() + 1) * Math.cos(Math.toRadians(gameMovableObject.getAngle())));
                 vy += (int) Math.round((gameMovableObject.getHeight() + 1) * Math.sin(Math.toRadians(gameMovableObject.getAngle())));
@@ -160,9 +162,7 @@ public class Gameworld extends JContainer implements ActionListener {
                 }
             }
             x = gameMovableObject.getX() + vx;
-            y = gameMovableObject.getY() + vy;*/
-            x = gameMovableObject.getX();
-            y = gameMovableObject.getY();
+            y = gameMovableObject.getY() + vy;
             angle = gameMovableObject.getAngle();
             maxX = this.rocket.getMaxX();
             maxY = this.rocket.getMaxY();
