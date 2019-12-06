@@ -200,8 +200,9 @@ public class Gameworld extends JContainer implements ActionListener {
         font = new Font(Font.MONOSPACED, Font.PLAIN, (int) Math.round(30 * this.app.getScale()));
         // set playerHealth to panel
         this.playerHealth = new JLabel();
+        this.playerHealth.setLayout(new BorderLayout());
         this.playerHealth.setFont(font);
-        this.playerHealth.setMaximumSize(new Dimension(player.getWidth() / 2, player.getHeight()));
+        this.playerHealth.setSize(new Dimension(player.getWidth(), player.getHeight()));
         this.playerHealth.setForeground(Color.WHITE);
         this.playerHealth.setHorizontalAlignment(JLabel.LEFT);
         this.playerHealth.setVerticalAlignment(JLabel.BOTTOM);
@@ -210,14 +211,15 @@ public class Gameworld extends JContainer implements ActionListener {
         player.add(this.playerHealth);
         // set playerPay to panel
         this.playerPay = new JLabel();
+        this.playerPay.setLayout(new BorderLayout());
         this.playerPay.setFont(font);
-        this.playerPay.setMaximumSize(new Dimension(player.getWidth() / 2, player.getHeight()));
+        this.playerPay.setSize(new Dimension(player.getWidth(), player.getHeight()));
         this.playerPay.setForeground(Color.WHITE);
         this.playerPay.setHorizontalAlignment(JLabel.RIGHT);
         this.playerPay.setVerticalAlignment(JLabel.BOTTOM);
         this.playerPay.setOpaque(false);
         this.playerPay.setVisible(true);
-        player.add(this.playerPay);
+        this.playerHealth.add(this.playerPay);
     }
 
     private void addPlayerInfo() {
