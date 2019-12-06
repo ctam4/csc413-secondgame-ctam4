@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.stream.Collectors;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
