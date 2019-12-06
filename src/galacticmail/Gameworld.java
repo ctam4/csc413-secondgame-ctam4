@@ -239,13 +239,13 @@ public class Gameworld extends JContainer implements ActionListener {
         if (this.rocket.getPay() >= this.app.getLevel() * 5000) {
             // overall winner
             if (this.app.getLevel() == 5) {
-                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_overall_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // reset level
                 this.app.setLevel(1);
             }
             // level winner
             else {
-                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_level_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // level up
                 this.app.setLevel(this.app.getLevel() + 1);
             }
