@@ -31,26 +31,24 @@ public class Rocket extends GameMovableObject {
     public boolean onCollision(GameObject gameObject) {
         switch (gameObject.getClass().getSimpleName()) {
             case "Asteroid":
-                // flying
-                if (this.isFlying) {
-                    return !takeDamage(((Asteroid) gameObject).getDamage());
-                }
-                // landed
-                else {
+                // landed (idle & ignited)
+                if (isLanded) {
                     return false;
                 }
-            case "Moon":
                 // flying
-                if (this.isFlying) {
-                    if (this.ignite) {
-                        toggleIgnite(false);
-                        land(gameObject);
-                    }
+                else if (this.isFlying) {
+                    return !takeDamage(((Asteroid) gameObject).getDamage());
                 }
-                // landed
-                else if (!this.ignite){
+            case "Moon":
+                // landed (idle)
+                if (this.isLanded && !this.isFlying) {
                     takePenalty(((Moon) gameObject).getPenalty());
                     moveAlong(gameObject);
+                }
+                // flying
+                else if (!this.isLanded && this.isFlying) {
+                    toggleIgnite(false);
+                    land(gameObject);
                 }
                 return false;
         }
@@ -91,9 +89,18 @@ public class Rocket extends GameMovableObject {
             toggleRight(false);
         }
         if (this.ignite) {
-            if (!this.isFlying) {
-                this.app.getGameworld().addFlyingRocket();
-            } else {
+            if (this.isLanded) {
+                // landed (idle)
+                if (!this.isFlying) {
+                    this.app.getGameworld().addFlyingRocket();
+                }
+                // landed (ignited)
+                else {
+                    launch();
+                }
+            }
+            // flying
+            else {
                 fly();
             }
         }

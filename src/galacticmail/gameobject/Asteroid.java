@@ -21,13 +21,13 @@ public class Asteroid extends GameMovableObject {
             case "Moon":
                 return true;
             case "Rocket":
-                // flying
-                if (((Rocket) gameObject).getIsFlying()) {
-                    return ((Rocket) gameObject).takeDamage(getDamage());
-                }
-                // landed
-                else {
+                // landed (idle & ignited)
+                if (((Rocket) gameObject).getIsLanded()) {
                     return true;
+                }
+                // flying
+                else if (((Rocket) gameObject).getIsFlying()) {
+                    return ((Rocket) gameObject).takeDamage(getDamage());
                 }
         }
         return false;

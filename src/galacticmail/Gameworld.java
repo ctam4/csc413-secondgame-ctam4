@@ -143,33 +143,15 @@ public class Gameworld extends JContainer implements ActionListener {
         }
         // if rocket has collided with another GameMovableObject
         else {
-            int vx = 0, vy = 0;
-            do {
-                vx += (int) Math.round((gameMovableObject.getWidth() + 1) * Math.cos(Math.toRadians(gameMovableObject.getAngle())));
-                vy += (int) Math.round((gameMovableObject.getHeight() + 1) * Math.sin(Math.toRadians(gameMovableObject.getAngle())));
-            } while ((vx != 0 && Math.abs(vx) < gameMovableObject.getWidth() + 1) || (vy != 0 && Math.abs(vy) < gameMovableObject.getHeight() + 1));
-            if (vx == 0) {
-                if (gameMovableObject.getAngle() == 0 || gameMovableObject.getAngle() == 270) {
-                    vy -= gameMovableObject.getHeight() + 1;
-                } else {
-                    vy += gameMovableObject.getHeight() + 1;
-                }
-            } else if (vy == 0) {
-                if (gameMovableObject.getAngle() == 90 || gameMovableObject.getAngle() == 180) {
-                    vx -= gameMovableObject.getWidth() + 1;
-                } else {
-                    vx += gameMovableObject.getWidth() + 1;
-                }
-            }
-            x = gameMovableObject.getX() + vx;
-            y = gameMovableObject.getY() + vy;
+            x = gameMovableObject.getX();
+            y = gameMovableObject.getY();
             angle = gameMovableObject.getAngle();
             maxX = this.rocket.getMaxX();
             maxY = this.rocket.getMaxY();
             health = this.rocket.getHealth();
             pay = this.rocket.getPay();
         }
-        this.rocket = new Rocket(this.app, 1.0, this.app.getResource("Gameworld/rocket_landed"), x, y, 0, 0, angle, maxX, maxY, false, health, pay);
+        this.rocket = new Rocket(this.app, 1.0, this.app.getResource("Gameworld/rocket_landed"), x, y, 0, 0, angle, maxX, maxY, true, false, health, pay);
         this.panel.putGameMovableObject(this.rocket);
     }
 
@@ -179,7 +161,7 @@ public class Gameworld extends JContainer implements ActionListener {
             this.panel.removeGameMovableObject(this.rocket);
         }
         // set flying rocket to panel
-        this.rocket = new Rocket(this.app, 1.0, this.app.getResource("Gameworld/rocket_flying"), this.rocket.getX(), this.rocket.getY(), this.rocket.getVx(), this.rocket.getVy(), this.rocket.getAngle(), this.rocket.getMaxX(), this.rocket.getMaxY(), true, this.rocket.getHealth(), this.rocket.getPay());
+        this.rocket = new Rocket(this.app, 1.0, this.app.getResource("Gameworld/rocket_flying"), this.rocket.getX(), this.rocket.getY(), this.rocket.getVx(), this.rocket.getVy(), this.rocket.getAngle(), this.rocket.getMaxX(), this.rocket.getMaxY(), true, true, this.rocket.getHealth(), this.rocket.getPay());
         this.panel.putGameMovableObject(this.rocket);
     }
 

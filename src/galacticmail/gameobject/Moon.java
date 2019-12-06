@@ -24,7 +24,20 @@ public class Moon extends GameMovableObject {
             case "Moon":
                 return true;
             case "Rocket":
-                return false;
+                if (((Rocket) gameObject).getIsLanded()) {
+                    // landed (idle)
+                    if (!((Rocket) gameObject).getIsFlying()) {
+                        return false;
+                    }
+                    // landed (ignited)
+                    else {
+                        return true;
+                    }
+                }
+                // flying
+                else if (((Rocket) gameObject).getIsFlying()) {
+                    return false;
+                }
         }
         return false;
     }
