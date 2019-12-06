@@ -86,9 +86,9 @@ public class Gameworld extends JContainer implements ActionListener {
         // set panel visible
         this.panel.setVisible(true);
         // set GameObjects
-        addMoons(this.app.getLevel() * 10);
+        addMoons(this.app.getLevel() * 30);
         addLandedRocket(null);
-        addAsteroids(this.app.getLevel() * 15);
+        addAsteroids(this.app.getLevel() * 20);
         // set player info bar
         playerInfoBar();
         // add panel to frame
@@ -236,7 +236,7 @@ public class Gameworld extends JContainer implements ActionListener {
 
     private void checkWinnerLoser() {
         // winner
-        if (this.rocket.getPay() >= 10000) {
+        if (this.rocket.getPay() >= this.app.getLevel() * 5000) {
             // overall winner
             if (this.app.getLevel() == 5) {
                 JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);

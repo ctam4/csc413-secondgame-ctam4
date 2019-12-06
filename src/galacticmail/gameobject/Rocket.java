@@ -12,7 +12,7 @@ import galacticmail.Launcher;
 public class Rocket extends GameMovableObject {
     private boolean isLanded, isFlying;
 
-    private final int R = 10;
+    private final int R = 15;
     private final int ROTATESPEED = 10;
 
     private int health;
