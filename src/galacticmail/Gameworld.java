@@ -48,6 +48,7 @@ public class Gameworld extends JContainer implements ActionListener {
         this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner, and you get this title - Super Galactic Mail Carrier");
         this.app.putString("Gameworld/is_level_winner", "You win this level, so you get promoted");
         this.app.putString("Gameworld/is_loser", "You are the loser");
+        this.app.putString("Gameworld/name", "Now you are one of the Super Galactic Mail Carriers, what is your name, Captain?");
         // create JFrame object
         this.frame = new JFrame();
         // set frame title
@@ -243,6 +244,13 @@ public class Gameworld extends JContainer implements ActionListener {
             // overall winner
             if (this.app.getLevel() == 5) {
                 JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/is_overall_winner") + "!!!</body></html>", this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
+                // ask for name
+                String name;
+                do {
+                    name = JOptionPane.showInputDialog(this.frame, this.app.getString("Gameworld/name"), this.app.getString("Gameworld/congrats"), JOptionPane.PLAIN_MESSAGE);
+                } while (name.length() == 0 || this.app.getScoreboard().containsKey(name.toUpperCase()));
+                // put name in scoreboard
+                this.app.putScoreboard(name.toUpperCase(), this.rocket.getPay());
                 // reset level
                 this.app.setLevel(1);
             }
