@@ -20,9 +20,8 @@ public class Moon extends GameMovableObject {
     public boolean onCollision(GameObject gameObject) {
         switch (gameObject.getClass().getSimpleName()) {
             case "Asteroid":
-                return false;
             case "Moon":
-                return true;
+                return false;
             case "Rocket":
                 if (((Rocket) gameObject).getIsLanded()) {
                     // landed (idle)

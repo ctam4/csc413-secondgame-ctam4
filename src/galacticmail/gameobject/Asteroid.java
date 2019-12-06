@@ -18,6 +18,7 @@ public class Asteroid extends GameMovableObject {
     public boolean onCollision(GameObject gameObject) {
         switch (gameObject.getClass().getSimpleName()) {
             case "Asteroid":
+                return false;
             case "Moon":
                 return true;
             case "Rocket":
