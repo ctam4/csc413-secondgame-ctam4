@@ -259,7 +259,7 @@ public class Gameworld extends JContainer implements ActionListener {
             this.app.reset();
         }
         // loser
-        else if (this.rocket.getHealth() == 0) {
+        else if (this.rocket.getHealth() == 0 || this.panel.getGameMovableObjects().stream().noneMatch(n -> n.getClass().getSimpleName().equals("Moon"))) {
             JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_loser"), this.app.getString("Gameworld/sorry"), JOptionPane.INFORMATION_MESSAGE);
             // reset level
             this.app.setLevel(1);
