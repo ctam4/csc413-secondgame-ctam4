@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 public class Launcher {
     private JContainer splash, gameworld;
+    private int level;
 
     private HashMap<String, BufferedImage> resources;
     private HashMap<String, String> strings;
@@ -29,6 +30,8 @@ public class Launcher {
         System.out.println(this.getClass().getSimpleName() + " - Launcher() - Get screen size: " + device.getWidth() + "x" + device.getHeight());
         this.scale = (int) Math.floor(device.getWidth() / 1280.0);
         System.out.println(this.getClass().getSimpleName() + " - Launcher() - Set scale: " + getScale());
+        // initialize level
+        this.level = 1;
         // initialize JContainer object
         this.splash = new Splash(this);
         // ready to splash
@@ -69,6 +72,14 @@ public class Launcher {
 
     public int getScale() {
         return this.scale;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void start() {
