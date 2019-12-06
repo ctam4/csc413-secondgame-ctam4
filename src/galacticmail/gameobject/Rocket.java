@@ -10,7 +10,7 @@ import java.lang.Math;
 import galacticmail.Launcher;
 
 public class Rocket extends GameMovableObject {
-    private boolean isFlying;
+    private boolean isLanded, isFlying;
 
     private final int R = 10;
     private final int ROTATESPEED = 10;
@@ -19,8 +19,9 @@ public class Rocket extends GameMovableObject {
     private int pay;
     private boolean left, right, ignite;
 
-    public Rocket(Launcher app, double scale, BufferedImage image, int x, int y, int vx, int vy, int angle, int maxX, int maxY, boolean isFlying, int health, int pay) {
+    public Rocket(Launcher app, double scale, BufferedImage image, int x, int y, int vx, int vy, int angle, int maxX, int maxY, boolean isLanded, boolean isFlying, int health, int pay) {
         super(app, scale, image, x, y, vx, vy, angle, maxX, maxY);
+        this.isLanded = isLanded;
         this.isFlying = this.ignite = isFlying;
         this.health = health;
         this.pay = pay;
@@ -54,6 +55,10 @@ public class Rocket extends GameMovableObject {
                 return false;
         }
         return false;
+    }
+
+    public boolean getIsLanded() {
+        return this.isLanded;
     }
 
     public boolean getIsFlying() {
