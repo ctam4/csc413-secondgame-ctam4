@@ -88,7 +88,7 @@ public class Gameworld extends JContainer implements ActionListener {
         // set GameObjects
         addMoons(this.app.getLevel() * 10);
         addLandedRocket(null);
-        addAsteroids(this.app.getLevel() * 20);
+        addAsteroids(this.app.getLevel() * 15);
         // set player info bar
         playerInfoBar();
         // add panel to frame
