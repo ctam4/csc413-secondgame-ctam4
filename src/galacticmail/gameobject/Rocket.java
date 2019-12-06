@@ -94,7 +94,7 @@ public class Rocket extends GameMovableObject {
             if (!this.isFlying) {
                 this.app.getGameworld().addFlyingRocket();
             } else {
-                launch();
+                fly();
             }
         }
     }
@@ -117,7 +117,7 @@ public class Rocket extends GameMovableObject {
         }
     }
 
-    private void launch() {
+    private void fly() {
         this.vx = (int) Math.round(this.R * this.app.getScale() * this.scale * Math.cos(Math.toRadians(this.angle)));
         this.vy = (int) Math.round(this.R * this.app.getScale() * this.scale * Math.sin(Math.toRadians(this.angle)));
         this.x += this.vx;
