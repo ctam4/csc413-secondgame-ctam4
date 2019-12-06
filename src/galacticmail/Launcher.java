@@ -74,7 +74,7 @@ public class Launcher {
         this.strings.put(key, value);
     }
 
-    public HashMap getScoreboard() {
+    public HashMap<String, Integer> getScoreboard() {
         return this.scoreboard;
     }
 

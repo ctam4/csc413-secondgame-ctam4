@@ -3,10 +3,8 @@ package galacticmail;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Collections;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.util.stream.Collectors;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -85,12 +83,14 @@ public class Splash extends JContainer {
     public void showScoreboard() {
         // sort scoreboard
         List<Map.Entry<String, Integer>> scoreboard = new LinkedList<Map.Entry<String, Integer>>(this.app.getScoreboard().entrySet());
-        Collections.sort(scoreboard, (a, b) -> (a.getValue()).compareTo(b.getValue()));
+        scoreboard.sort((a, b) -> (a.getValue()).compareTo(b.getValue()));
         // display result
         String message;
+        // if scoreboard is not empty
         if (!scoreboard.isEmpty()) {
             message = "<html><body>" + scoreboard.stream().map(e -> e.getKey() + ": $" + e.getValue()).collect(Collectors.joining("<br>")) + "</body></html>";
         }
+        // if scoreboard is empty
         else {
             message = this.app.getString("Splash/empty_scoreboard");
         }
