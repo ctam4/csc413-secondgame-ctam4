@@ -233,23 +233,4 @@ public class Rocket extends GameMovableObject {
             this.pay = 0;
         }
     }
-
-    @Override
-    public void draw(Graphics g) {
-        super.draw(g);
-        // draw health bar
-        Graphics2D g2d = (Graphics2D) g;
-        // left
-        Rectangle rect_1 = new Rectangle(this.x, (int) Math.round(this.y - 10 * this.app.getScale() * this.scale), (int) Math.round(this.width * ((this.health / 100.0 > 0 && this.health % 100.0 == 0) ? 1.0 : (this.health % 100.0 / 100))), (int) Math.round(this.height * 0.1));
-        if (rect_1.getWidth() > 0) {
-            g2d.setColor(Color.GREEN);
-            g2d.fillRect((int) Math.round(rect_1.getX()), (int) Math.round(rect_1.getY()), (int) Math.round(rect_1.getWidth()), (int) Math.round(rect_1.getHeight()));
-        }
-        // right
-        Rectangle rect_2 = new Rectangle((int) Math.round(this.x + rect_1.getWidth()), (int) Math.round(rect_1.getY()), (int) Math.round(this.width - rect_1.getWidth()), (int) Math.round(rect_1.getHeight()));
-        if (rect_2.getWidth() > 0) {
-            g2d.setColor(Color.RED);
-            g2d.fillRect((int) Math.round(rect_2.getX()), (int) Math.round(rect_2.getY()), (int) Math.round(rect_2.getWidth()), (int) Math.round(rect_2.getHeight()));
-        }
-    }
 }
