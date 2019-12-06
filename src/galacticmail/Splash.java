@@ -16,7 +16,7 @@ public class Splash extends JContainer {
         // import resources using path
         this.app.putResource("Splash/title", "/resources/Title.gif");
         // import strings
-        this.app.putString("Splash/instruction", "[ENTER] to start | [ESC] to quit");
+        this.app.putString("Splash/instruction", "[ENTER] to start/continue | [ESC] to quit");
         // create JFrame object
         this.frame = new JFrame();
         // set frame title

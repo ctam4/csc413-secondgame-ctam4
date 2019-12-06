@@ -37,15 +37,16 @@ public class Gameworld extends JContainer implements ActionListener {
         this.app.putResource("Gameworld/asteroid", "/resources/Asteroid.gif");
         // import strings
         this.app.putString("Gameworld/rules", "Rules");
-        this.app.putString("Gameworld/player", "PLAYER");
-        this.app.putString("Gameworld/rule_1", "You must earn $10000 to win the game.");
-        this.app.putString("Gameworld/rule_2", "You have 3 lives, and when it hits 0, you lose.");
-        this.app.putString("Gameworld/rule_3", "Player - Turn Left/Turn Right/Ignite: ←/→/SPACEBAR");
+        this.app.putString("Gameworld/player", "GALACTIC MAIL CARRIER");
+        this.app.putString("Gameworld/rule_1", "You are a Galactic Mail Carrier at Level " + this.app.getLevel() + ". You must earn $" + this.app.getLevel() * 5000 + " at this level to level up.");
+        this.app.putString("Gameworld/rule_2", "You have 3 lives, and once it hits 0, you lose this level, and your level resets to 1. Lives resets at every level.");
+        this.app.putString("Gameworld/rule_3", "Once you win at level 5, you are the overall winner - Super Galactic Mail Carrier.");
+        this.app.putString("Gameworld/rule_4", "You can turn left/turn right/ignite by pressing ←/→/SPACEBAR. When rocket is in flight, you cannot steer until it approaches the moon.");
         this.app.putString("Gameworld/ok", "Okay");
         this.app.putString("Gameworld/congrats", "Congrats");
         this.app.putString("Gameworld/sorry", "Sorry");
-        this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner");
-        this.app.putString("Gameworld/is_level_winner", "You are the level winner");
+        this.app.putString("Gameworld/is_overall_winner", "You are the all-time winner, and you get this title - Super Galactic Mail Carrier");
+        this.app.putString("Gameworld/is_level_winner", "You win this level, so you get promoted");
         this.app.putString("Gameworld/is_loser", "You are the loser");
         // create JFrame object
         this.frame = new JFrame();
@@ -100,7 +101,7 @@ public class Gameworld extends JContainer implements ActionListener {
     }
 
     private void showRules() {
-        JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/rule_1") + "<br>" + this.app.getString("Gameworld/rule_2") + "<br>" + this.app.getString("Gameworld/rule_3") + "</body></html>", this.app.getString("Gameworld/rules"), JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this.frame, "<html><body>" + this.app.getString("Gameworld/rule_1") + "<br>" + this.app.getString("Gameworld/rule_2") + "<br>" + this.app.getString("Gameworld/rule_3") + "<br>" + this.app.getString("Gameworld/rule_4") + "</body></html>", this.app.getString("Gameworld/rules"), JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void addMoons(int num) {
