@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 import java.lang.Math;
 import java.lang.IllegalArgumentException;
+import java.lang.RuntimeException;
 import java.lang.reflect.InvocationTargetException;
 
 import galacticmail.gameobject.*;
@@ -129,28 +130,25 @@ public class Gameworld extends JContainer implements ActionListener {
         // if gameMovableObject is NULL
         if (gameMovableObject == null) {
             // find first moon
-            /*gameMovableObject = this.panel.getGameMovableObjects().stream().filter(n -> n.getClass().getSimpleName().equals("Moon")).findFirst().get();
+            gameMovableObject = (GameMovableObject) this.panel.getGameMovableObjects().stream().filter(n -> n.getClass().getSimpleName().equals("Moon")).findFirst().orElse(null);
+            // found no moon
             if (gameMovableObject == null) {
-                return;// TODO
-            }*/
-            x = 0;
-            y = 0;
-            angle = 180;
+                throw new RuntimeException();
+            }
             maxX = this.panel.getWidth();
             maxY = this.panel.getHeight();
             health = 300;
             pay = 0;
         }
-        // if rocket has collided with another GameMovableObject
         else {
-            x = gameMovableObject.getX();
-            y = gameMovableObject.getY();
-            angle = gameMovableObject.getAngle();
             maxX = this.rocket.getMaxX();
             maxY = this.rocket.getMaxY();
             health = this.rocket.getHealth();
             pay = this.rocket.getPay();
         }
+        x = gameMovableObject.getX();
+        y = gameMovableObject.getY();
+        angle = gameMovableObject.getAngle();
         this.rocket = new Rocket(this.app, 1.0, this.app.getResource("Gameworld/rocket_landed"), x, y, 0, 0, angle, maxX, maxY, true, false, health, pay);
         this.panel.putGameMovableObject(this.rocket);
     }
