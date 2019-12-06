@@ -139,6 +139,46 @@ public class Rocket extends GameMovableObject {
         }
     }
 
+    private void launch() {
+        this.isLanded = false;
+        this.vx = 0;
+        this.vy = 0;
+        do {
+            this.vx += (int) Math.round((this.width + 1) * Math.cos(Math.toRadians(this.angle)));
+            this.vy += (int) Math.round((this.height + 1) * Math.sin(Math.toRadians(this.angle)));
+        } while ((this.vx != 0 && Math.abs(this.vx) < this.width + 1) || (this.vy != 0 && Math.abs(this.vy) < this.height + 1));
+        if (this.vx == 0) {
+            if (this.angle == 0 || this.angle == 270) {
+                this.vy -= this.height + 1;
+            } else {
+                this.vy += this.height + 1;
+            }
+        } else if (this.vy == 0) {
+            if (this.angle == 90 || this.angle == 180) {
+                this.vx -= this.width + 1;
+            } else {
+                this.vx += this.width + 1;
+            }
+        }
+        this.x += this.vx;
+        this.y += this.vy;
+        // if the new position is out of current panel
+        if (!validPosition(this.x, this.y)) {
+            if (this.x < 0) {
+                this.x += this.maxX;
+            }
+            else if (this.x > this.maxX) {
+                this.x -= this.maxX;
+            }
+            if (this.y < 0) {
+                this.y += this.maxY;
+            }
+            else if (this.y > this.maxY) {
+                this.y -= this.maxY;
+            }
+        }
+    }
+
     private void land(GameObject gameObject) {
         setPay(getPay() + ((Moon) gameObject).getPay());
         this.app.getGameworld().addLandedRocket(gameObject);
