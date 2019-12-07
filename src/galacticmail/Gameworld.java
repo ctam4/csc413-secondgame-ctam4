@@ -115,7 +115,7 @@ public class Gameworld extends JContainer implements ActionListener {
             x = (int) Math.round(Math.random() * this.panel.getWidth());
             y = (int) Math.round(Math.random() * this.panel.getHeight());
             angle = (int) Math.round(Math.random() * 72) * 5;
-            this.panel.putGameMovableObject(new Moon(this.app, 1.0, this.app.getResource("Gameworld/moon"), x, y, 0, 0, angle, this.panel.getWidth(), this.panel.getHeight(), 1000, 5));
+            this.panel.putGameMovableObject(new Moon(this.app, 1.0, this.app.getResource("Gameworld/moon"), x, y, 0, 0, angle, this.panel.getWidth(), this.panel.getHeight(), 1000, 2));
         }
     }
 
