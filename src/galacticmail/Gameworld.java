@@ -249,14 +249,17 @@ public class Gameworld extends JContainer implements ActionListener {
                 this.app.putScoreboard(name.toUpperCase(), this.rocket.getPay());
                 // reset level
                 this.app.setLevel(1);
+                this.app.reset();
+                this.app.getSplash().showScoreboard();
             }
             // level winner
             else {
                 JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_level_winner"), this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // level up
                 this.app.setLevel(this.app.getLevel() + 1);
+                this.app.reset();
+                this.app.start();
             }
-            this.app.reset();
         }
         // loser
         else if (this.rocket.getHealth() == 0 || this.panel.getGameMovableObjects().stream().noneMatch(n -> n.getClass().getSimpleName().equals("Moon"))) {
