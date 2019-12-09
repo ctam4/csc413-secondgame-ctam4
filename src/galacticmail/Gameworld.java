@@ -39,7 +39,7 @@ public class Gameworld extends JContainer implements ActionListener {
         this.app.putString("Gameworld/player", "GALACTIC MAIL CARRIER");
         this.app.putString("Gameworld/rule_1", "You are a Galactic Mail Carrier at Level " + this.app.getLevel() + ". You must earn $" + this.app.getLevel() * 5000 + " at this level to level up.");
         this.app.putString("Gameworld/rule_2", "You have 3 lives, and once it hits 0, you lose this level, and your level resets to 1. Lives resets at every level.");
-        this.app.putString("Gameworld/rule_3", "Once you win at level 5, you are the overall winner - Super Galactic Mail Carrier.");
+        this.app.putString("Gameworld/rule_3", "Once you win at level 3, you are the overall winner - Super Galactic Mail Carrier.");
         this.app.putString("Gameworld/rule_4", "You can turn left/turn right/ignite by pressing ←/→/SPACEBAR. When rocket is in flight, you cannot steer until it approaches the moon.");
         this.app.putString("Gameworld/ok", "Okay");
         this.app.putString("Gameworld/congrats", "Congrats");
@@ -238,7 +238,7 @@ public class Gameworld extends JContainer implements ActionListener {
         // winner
         if (this.rocket.getPay() >= this.app.getLevel() * 5000) {
             // overall winner
-            if (this.app.getLevel() == 5) {
+            if (this.app.getLevel() == 3) {
                 JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_overall_winner"), this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // ask for name
                 String name;
