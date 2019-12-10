@@ -106,6 +106,14 @@ public class Launcher {
         this.gameworld.show();
     }
 
+    public void restart() {
+        this.gameworld.close();
+        // initialize JContainer object
+        this.gameworld = new Gameworld(this);
+        // ready to game
+        this.gameworld.show();
+    }
+
     public void reset() {
         this.gameworld.close();
         this.splash.show();

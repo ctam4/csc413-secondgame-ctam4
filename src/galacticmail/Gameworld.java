@@ -257,8 +257,7 @@ public class Gameworld extends JContainer implements ActionListener {
                 JOptionPane.showMessageDialog(this.frame, this.app.getString("Gameworld/is_level_winner"), this.app.getString("Gameworld/congrats"), JOptionPane.INFORMATION_MESSAGE);
                 // level up
                 this.app.setLevel(this.app.getLevel() + 1);
-                this.app.reset();
-                this.app.start();
+                this.app.restart();
             }
         }
         // loser
